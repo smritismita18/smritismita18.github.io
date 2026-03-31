@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smriti Smita Mahapatra — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --black:#0a0a0a;--black2:#111111;--black3:#1a1a1a;
+    --cream:#e8e0d0;--cream2:#c9bfa8;--cream3:#a89f8c;--white:#f5f0e8;
+    --border:rgba(232,224,208,0.1);--border2:rgba(232,224,208,0.2);
+    --display:'Bebas Neue','Arial Black',sans-serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+    --italic:'Playfair Display',Georgia,serif;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--black);color:var(--cream);line-height:1.6;font-size:15px;overflow-x:hidden}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .nav-meta{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream3)}
+  .nav-links{display:flex;gap:0.5rem;list-style:none}
+  .nav-links a{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream3);text-decoration:none;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:999px;transition:all 0.2s}
+  .nav-links a:hover{color:var(--black);background:var(--cream);border-color:var(--cream)}
+  .nav-arrow{font-size:0.8rem;color:var(--cream3)}
+
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 3rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+  .hero-label{position:absolute;top:6rem;left:2.5rem;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream3)}
+  .hero-arrow-top{position:absolute;top:6rem;right:2.5rem;font-size:0.85rem;color:var(--cream3)}
+  .hero-display{font-family:var(--display);font-size:clamp(5rem,17vw,15rem);line-height:0.88;letter-spacing:0.02em;color:var(--cream);text-transform:uppercase;margin-bottom:3rem;position:relative;z-index:2}
+  .hero-display .line2{padding-left:8vw}
+  .hero-display .ital-word{font-family:var(--italic);font-style:italic;font-size:0.52em;text-transform:none;vertical-align:middle;color:var(--cream2);letter-spacing:0}
+  .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--border);padding-top:1.5rem}
+  .hero-name-block{}
+  .hero-name{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream3)}
+  .hero-sub{font-size:0.68rem;letter-spacing:0.12em;color:var(--cream3);margin-top:0.3rem;opacity:0.7}
+  .hero-stats{display:flex;gap:3rem}
+  .hstat{text-align:center}
+  .hstat-num{font-family:var(--display);font-size:2.8rem;color:var(--cream);display:block;line-height:1}
+  .hstat-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--cream3)}
+  .hero-tagline{max-width:320px;text-align:right;font-size:0.83rem;color:var(--cream3);line-height:1.75}
+
+  .page-top{display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;border-bottom:1px solid var(--border);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream3)}
+  section{border-bottom:1px solid var(--border)}
+  .section-inner{max-width:1200px;margin:0 auto;padding:5rem 2.5rem}
+  .section-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream3);margin-bottom:1.5rem}
+  .display-heading{font-family:var(--display);font-size:clamp(3.5rem,8vw,7rem);line-height:0.92;letter-spacing:0.03em;text-transform:uppercase;color:var(--cream);margin-bottom:3rem}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+  .about-body{font-size:0.93rem;color:var(--cream3);line-height:1.9}
+  .about-body p{margin-bottom:1.2rem}
+  .about-body strong{color:var(--cream);font-weight:500}
+  .about-pull{font-family:var(--display);font-size:clamp(1.2rem,2.5vw,1.9rem);letter-spacing:0.06em;text-transform:uppercase;color:var(--cream);line-height:1.2;border-top:1px solid var(--border2);padding-top:2rem;margin-top:2rem}
+  .edu-list{display:flex;flex-direction:column}
+  .edu-row{display:flex;justify-content:space-between;align-items:flex-start;padding:1.4rem 0;border-bottom:1px solid var(--border);gap:1rem}
+  .edu-row:first-child{border-top:1px solid var(--border)}
+  .edu-num{font-family:var(--display);font-size:0.9rem;color:var(--cream3);opacity:0.4;min-width:2rem;letter-spacing:0.1em;padding-top:0.15rem}
+  .edu-name{font-size:0.9rem;font-weight:500;color:var(--cream)}
+  .edu-sub{font-size:0.77rem;color:var(--cream3);margin-top:0.2rem}
+  .edu-right{text-align:right;flex-shrink:0}
+  .edu-score{font-family:var(--display);font-size:1.25rem;color:var(--cream);letter-spacing:0.05em;display:block}
+  .edu-year{font-size:0.7rem;color:var(--cream3);letter-spacing:0.1em}
+
+  #skills{background:var(--black2)}
+  .skills-toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-left:1px solid var(--border)}
+  .skill-col{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem}
+  .skill-col-num{font-family:var(--display);font-size:0.85rem;color:var(--cream3);opacity:0.35;letter-spacing:0.1em;margin-bottom:0.4rem}
+  .skill-col-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream2);margin-bottom:1.2rem;padding-bottom:0.9rem;border-bottom:1px solid var(--border)}
+  .skill-pills{display:flex;flex-wrap:wrap;gap:0.4rem}
+  .pill{font-size:0.7rem;padding:0.28rem 0.8rem;border:1px solid var(--border2);border-radius:999px;color:var(--cream3);letter-spacing:0.04em;transition:all 0.2s;cursor:default}
+  .pill:hover{background:var(--cream);color:var(--black);border-color:var(--cream)}
+
+  .projects-list{display:flex;flex-direction:column}
+  .project-row{display:grid;grid-template-columns:80px 1fr 1fr auto;gap:2.5rem;align-items:start;padding:3rem 0;border-bottom:1px solid var(--border);transition:background 0.2s}
+  .project-row:first-child{border-top:1px solid var(--border)}
+  .project-row:hover{background:rgba(232,224,208,0.02)}
+  .proj-num{font-family:var(--display);font-size:1.2rem;color:var(--cream3);opacity:0.35;letter-spacing:0.1em;padding-top:0.3rem}
+  .proj-title{font-family:var(--display);font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:0.04em;text-transform:uppercase;color:var(--cream);line-height:1.1;margin-bottom:0.8rem}
+  .proj-desc{font-size:0.84rem;color:var(--cream3);line-height:1.8}
+  .proj-highlights{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+  .proj-highlights li{font-size:0.8rem;color:var(--cream3);padding-left:1rem;position:relative;line-height:1.6}
+  .proj-highlights li::before{content:'—';position:absolute;left:0;color:var(--cream2);font-size:0.75rem}
+  .proj-stack{display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;padding-top:0.3rem}
+  .proj-tag{font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.25rem 0.7rem;border:1px solid var(--border2);border-radius:999px;color:var(--cream3);white-space:nowrap}
+
+  #experience{background:var(--black2)}
+  .exp-list{display:flex;flex-direction:column}
+  .exp-row{display:grid;grid-template-columns:60px 1fr auto;gap:2.5rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid var(--border)}
+  .exp-row:first-child{border-top:1px solid var(--border)}
+  .exp-n{font-family:var(--display);font-size:1rem;color:var(--cream3);opacity:0.3;letter-spacing:0.1em;padding-top:0.2rem}
+  .exp-title{font-family:var(--display);font-size:clamp(1.1rem,2vw,1.5rem);letter-spacing:0.05em;text-transform:uppercase;color:var(--cream);margin-bottom:0.3rem}
+  .exp-co{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream2);margin-bottom:1rem}
+  .exp-pts{list-style:none}
+  .exp-pts li{font-size:0.81rem;color:var(--cream3);padding:0.3rem 0 0.3rem 1rem;position:relative;border-bottom:1px solid rgba(232,224,208,0.05);line-height:1.65}
+  .exp-pts li::before{content:'·';position:absolute;left:0;color:var(--cream2);font-size:1.1rem;line-height:1.1}
+  .exp-badge{font-size:0.63rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.32rem 1rem;border:1px solid var(--border2);border-radius:999px;color:var(--cream3);white-space:nowrap;margin-top:0.3rem}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+  .award-list,.vol-list{display:flex;flex-direction:column}
+  .award-item,.vol-item{padding:1.4rem 0;border-bottom:1px solid var(--border)}
+  .award-item:first-child,.vol-item:first-child{border-top:1px solid var(--border)}
+  .award-name{font-family:var(--display);font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--cream);margin-bottom:0.3rem}
+  .award-desc{font-size:0.8rem;color:var(--cream3);line-height:1.7}
+
+  #contact{background:var(--black2)}
+  .contact-display{font-family:var(--display);font-size:clamp(4rem,11vw,10rem);line-height:0.9;letter-spacing:0.03em;text-transform:uppercase;color:var(--cream);margin-bottom:3rem}
+  .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;border-top:1px solid var(--border);padding-top:2.5rem}
+  .contact-desc{font-size:0.9rem;color:var(--cream3);line-height:1.85;max-width:400px}
+  .contact-links-col{display:flex;flex-direction:column}
+  .clink{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:padding-left 0.2s}
+  .clink:first-child{border-top:1px solid var(--border)}
+  .clink:hover{padding-left:0.5rem}
+  .clink-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream3)}
+  .clink-val{font-family:var(--display);font-size:0.92rem;letter-spacing:0.08em;color:var(--cream);text-transform:uppercase}
+  .clink-arr{font-size:0.9rem;color:var(--cream3)}
+
+  footer{padding:1.5rem 2.5rem;display:flex;justify-content:space-between;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream3);border-top:1px solid var(--border)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .fade-up{animation:fadeUp 0.8s ease both}
+  .d1{animation-delay:0.05s}.d2{animation-delay:0.15s}.d3{animation-delay:0.25s}.d4{animation-delay:0.35s}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:800px){
+    nav{padding:1rem;flex-wrap:wrap;gap:0.5rem}
+    .nav-links{gap:0.4rem;flex-wrap:wrap}
+    .hero{padding:0 1.2rem 2rem}
+    .hero-display{font-size:clamp(4rem,22vw,8rem)}
+    .hero-display .line2{padding-left:0}
+    .hero-stats{gap:1.5rem}
+    .hero-tagline{display:none}
+    .section-inner{padding:3rem 1.2rem}
+    .about-grid,.two-col,.contact-row{grid-template-columns:1fr;gap:2rem}
+    .project-row{grid-template-columns:50px 1fr}
+    .project-row>:nth-child(3),.project-row>:nth-child(4){display:none}
+    .exp-row{grid-template-columns:50px 1fr}
+    .exp-row>:last-child{display:none}
+    footer{flex-direction:column;gap:0.5rem}
+    .page-top{padding:0.8rem 1.2rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-meta">SSM</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-display fade-up d2">
+    Port<span class="ital-word">folio</span><br>
+    <span class="line2">2026</span>
+  </div>
+  <div class="hero-bottom fade-up d3">
+    <div class="hero-name-block">
+      <div class="hero-name">Smriti Smita Mahapatra</div>
+      <div class="hero-sub">CSE · Hyderabad, India</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">8.45</span><span class="hstat-label">CGPA</span></div>
+      <div class="hstat"><span class="hstat-num">02</span><span class="hstat-label">Projects</span></div>
+      <div class="hstat"><span class="hstat-num">03</span><span class="hstat-label">Internships</span></div>
+    </div>
+    <div class="hero-tagline">Computer Science student building intelligent systems &amp; seamless digital experiences.</div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>About Me</span></div>
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow reveal">Introduction</div>
+        <div class="display-heading reveal">About<br>Me</div>
+        <div class="about-body reveal">
+          <p>I'm a final-year <strong>Computer Science Engineering</strong> student at St. Martin's Engineering College, Hyderabad, passionate about building things that are both technically rigorous and beautifully crafted.</p>
+          <p>My interests span <strong>Data Science and Machine Learning</strong> — training neural networks, working with real-world datasets — alongside <strong>Web Development and UI/UX Design</strong>, bridging back-end logic with front-end delight.</p>
+          <p>Beyond code, I volunteered three years with the <strong>Robin Hood Army</strong>, designing learning sessions for 50+ underprivileged children — shaping my belief in technology's power for real-world impact.</p>
+          <div class="about-pull">Prime Minister Scholar — National Defence Fund</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-eyebrow" style="margin-bottom:1.5rem">Education</div>
+        <div class="edu-list">
+          <div class="edu-row">
+            <span class="edu-num">01</span>
+            <div><div class="edu-name">St. Martin's Engineering College</div><div class="edu-sub">B.Tech — Computer Science &amp; Engineering</div></div>
+            <div class="edu-right"><span class="edu-score">8.45</span><span class="edu-year">2022 – 2026</span></div>
+          </div>
+          <div class="edu-row">
+            <span class="edu-num">02</span>
+            <div><div class="edu-name">Excellencia Junior College</div><div class="edu-sub">Telangana Board — MPC Intermediate</div></div>
+            <div class="edu-right"><span class="edu-score">88.8%</span><span class="edu-year">2020 – 2022</span></div>
+          </div>
+          <div class="edu-row">
+            <span class="edu-num">03</span>
+            <div><div class="edu-name">UNICENT School</div><div class="edu-sub">CBSE — Secondary Education</div></div>
+            <div class="edu-right"><span class="edu-score">82.33%</span><span class="edu-year">2019 – 2020</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>Personal Skill</span></div>
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Technical Stack</div>
+    <div class="display-heading reveal">Skills</div>
+    <div class="skills-toc reveal">
+      <div class="skill-col">
+        <div class="skill-col-num">01</div>
+        <div class="skill-col-title">Programming Languages</div>
+        <div class="skill-pills">
+          <span class="pill">Python</span><span class="pill">C</span><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-num">02</div>
+        <div class="skill-col-title">Data Science &amp; ML</div>
+        <div class="skill-pills">
+          <span class="pill">EDA &amp; Preprocessing</span><span class="pill">Feature Engineering</span><span class="pill">ML Algorithms</span><span class="pill">Neural Networks</span><span class="pill">CNN</span><span class="pill">NLP Basics</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-num">03</div>
+        <div class="skill-col-title">Frameworks &amp; Libraries</div>
+        <div class="skill-pills">
+          <span class="pill">Flask</span><span class="pill">Streamlit</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Matplotlib</span><span class="pill">Scikit-learn</span><span class="pill">TensorFlow</span><span class="pill">Keras</span><span class="pill">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-num">04</div>
+        <div class="skill-col-title">UI/UX &amp; Design</div>
+        <div class="skill-pills">
+          <span class="pill">Figma</span><span class="pill">Canva</span><span class="pill">Responsive Design</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-num">05</div>
+        <div class="skill-col-title">Database &amp; Dev Tools</div>
+        <div class="skill-pills">
+          <span class="pill">SQL</span><span class="pill">MySQL</span><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">Jupyter</span><span class="pill">Colab</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-num">06</div>
+        <div class="skill-col-title">Soft Skills</div>
+        <div class="skill-pills">
+          <span class="pill">Leadership</span><span class="pill">Team Management</span><span class="pill">Public Speaking</span><span class="pill">Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>Project Portfolio</span></div>
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Selected Work</div>
+    <div class="display-heading reveal">Projects</div>
+    <div class="projects-list">
+      <div class="project-row reveal">
+        <div class="proj-num">01</div>
+        <div>
+          <div class="proj-title">Secure Patient Data Management Using AI &amp; Edge Computing</div>
+          <div class="proj-desc">Healthcare data management using AI-driven anomaly detection at the edge — reducing cloud dependency and enabling real-time privacy compliance to HIPAA standards.</div>
+        </div>
+        <ul class="proj-highlights">
+          <li>AES encryption + RBAC for end-to-end HIPAA security</li>
+          <li>Edge computing reduces latency and cloud dependency</li>
+          <li>Sub-second response times for real-time record retrieval</li>
+          <li>Flask web interface backed by MySQL</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="proj-tag">Python</span><span class="proj-tag">Flask</span><span class="proj-tag">MySQL</span><span class="proj-tag">AES Encryption</span><span class="proj-tag">Edge Computing</span>
+        </div>
+      </div>
+      <div class="project-row reveal">
+        <div class="proj-num">02</div>
+        <div>
+          <div class="proj-title">Simpsons Character Prediction Using CNN</div>
+          <div class="proj-desc">Deep learning image classifier identifying 20+ Simpsons characters with 90%+ accuracy, deployed as an interactive Streamlit web app.</div>
+        </div>
+        <ul class="proj-highlights">
+          <li>90%+ validation accuracy on 20+ character classes</li>
+          <li>Data augmentation to improve generalisation</li>
+          <li>Real-time prediction via image upload interface</li>
+          <li>OpenCV-powered preprocessing pipeline</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="proj-tag">TensorFlow</span><span class="proj-tag">Keras</span><span class="proj-tag">CNN</span><span class="proj-tag">OpenCV</span><span class="proj-tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>Experience</span></div>
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Internships</div>
+    <div class="display-heading reveal">Work<br>Experience</div>
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <div class="exp-n">01</div>
+        <div>
+          <div class="exp-title">Front-End Development Intern</div>
+          <div class="exp-co">Cognifyz Technologies</div>
+          <ul class="exp-pts">
+            <li>Built responsive web interfaces in HTML, CSS &amp; JavaScript</li>
+            <li>Translated Figma mockups into pixel-perfect, accessible web pages</li>
+            <li>Practiced Git and GitHub for version control throughout development</li>
+          </ul>
+        </div>
+        <span class="exp-badge">Frontend</span>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-n">02</div>
+        <div>
+          <div class="exp-title">Graphic Design Intern</div>
+          <div class="exp-co">E2E Procurement</div>
+          <ul class="exp-pts">
+            <li>Designed brand visuals, social assets &amp; marketing collateral using Canva</li>
+            <li>Delivered 15+ design assets across multiple campaigns</li>
+            <li>Maintained brand consistency while adhering to client deadlines</li>
+          </ul>
+        </div>
+        <span class="exp-badge">Design</span>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-n">03</div>
+        <div>
+          <div class="exp-title">Intern</div>
+          <div class="exp-co">Path Creators</div>
+          <ul class="exp-pts">
+            <li>Supported project planning and execution across cross-functional teams</li>
+            <li>Strengthened professional communication &amp; collaboration skills</li>
+          </ul>
+        </div>
+        <span class="exp-badge">Operations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>Recognition</span></div>
+<section id="awards">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <div class="section-eyebrow reveal">Awards &amp; Achievements</div>
+        <div class="display-heading reveal" style="font-size:clamp(2.5rem,5vw,4.5rem)">Recog-<br>nition</div>
+        <div class="award-list reveal">
+          <div class="award-item">
+            <div class="award-name">Prime Minister Scholarship — NDF</div>
+            <div class="award-desc">Nationally competitive scholarship for outstanding academic excellence in undergraduate engineering.</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name">Sports &amp; Co-Curricular Excellence</div>
+            <div class="award-desc">Multiple school-level awards across sports and co-curricular activities.</div>
+          </div>
+          <div class="award-item">
+            <div class="award-name">Elocution &amp; Public Speaking</div>
+            <div class="award-desc">Active participant in inter-school elocution competitions with strong oratory skills.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow reveal">Volunteer Experience</div>
+        <div class="display-heading reveal" style="font-size:clamp(2.5rem,5vw,4.5rem)">Giving<br>Back</div>
+        <div class="vol-list reveal">
+          <div class="vol-item">
+            <div class="award-name">Robin Hood Army — Academy Volunteer</div>
+            <div class="award-desc" style="margin:0.4rem 0 0.6rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream2)">2019 – 2022 · 3-Year Commitment</div>
+            <div class="award-desc">Designed and delivered weekend learning sessions for 50+ underprivileged children (Grades 1–8), covering literacy, mathematics and soft skills. Developed lesson plans, tracked progress and mentored volunteer peers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-top reveal"><span>Contact</span></div>
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Open to Work</div>
+    <div class="contact-display reveal">Hire<br>Me</div>
+    <div class="contact-row reveal">
+      <div class="contact-desc">
+        <div style="margin-bottom:1.6rem">
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream2);margin-bottom:1rem">Currently seeking</div>
+          <div style="display:flex;flex-direction:column;gap:0.6rem">
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <span style="font-family:var(--display);font-size:0.8rem;letter-spacing:0.12em;color:var(--cream3)">01</span>
+              <span style="font-size:0.88rem;color:var(--cream);font-weight:500">Data Science &amp; ML Roles</span>
+              <span style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border:1px solid rgba(232,224,208,0.3);border-radius:999px;color:var(--cream2)">Primary</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <span style="font-family:var(--display);font-size:0.8rem;letter-spacing:0.12em;color:var(--cream3)">02</span>
+              <span style="font-size:0.88rem;color:var(--cream2)">Software Development</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <span style="font-family:var(--display);font-size:0.8rem;letter-spacing:0.12em;color:var(--cream3)">03</span>
+              <span style="font-size:0.88rem;color:var(--cream3)">UI/UX · Web Development (Collaborations)</span>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:1.2rem;font-size:0.82rem;color:var(--cream3);line-height:1.8">
+          Available for full-time positions, internships and contract work. Based in Hyderabad — open to remote opportunities.
+        </div>
+      </div>
+      <div class="contact-links-col">
+        <a href="mailto:smritismita18@gmail.com" class="clink">
+          <span class="clink-label">Email</span><span class="clink-val">smritismita18@gmail.com</span><span class="clink-arr">→</span>
+        </a>
+        <a href="tel:+918919255094" class="clink">
+          <span class="clink-label">Phone</span><span class="clink-val">+91 8919255094</span><span class="clink-arr">→</span>
+        </a>
+        <a href="https://linkedin.com/in/smriti-smita-mahapatra-063860260" target="_blank" class="clink">
+          <span class="clink-label">LinkedIn</span><span class="clink-val">Smriti Smita Mahapatra</span><span class="clink-arr">→</span>
+        </a>
+        <a href="https://github.com/smritismita18" target="_blank" class="clink">
+          <span class="clink-label">GitHub</span><span class="clink-val">smritismita18</span><span class="clink-arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Smriti Smita Mahapatra · Hyderabad, India</span>
+  <span>English · Hindi · Odia</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
